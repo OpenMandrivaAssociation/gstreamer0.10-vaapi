@@ -23,6 +23,7 @@ BuildRequires:	libgstreamer-devel
 BuildRequires:	libgstreamer-plugins-base-devel
 BuildRequires:	libva-devel
 BuildRequires:	ffmpeg-devel
+BUildRequires:	gtk-doc
 
 %description
 gstreamer-vaapi consists of a collection of VA-API based plugins for
