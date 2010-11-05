@@ -2,7 +2,7 @@
 %define name	gstreamer0.10-vaapi
 %define oname	gstreamer-vaapi
 %define version	0.2.5
-%define rel	1
+%define rel	2
 
 %define api	0.10
 %define major	0
