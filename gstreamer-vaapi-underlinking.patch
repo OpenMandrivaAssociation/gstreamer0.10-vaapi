@@ -1,0 +1,22 @@
+Index: gstreamer-vaapi-0.2.5/configure.ac
+===================================================================
+--- gstreamer-vaapi-0.2.5/configure.ac
++++ gstreamer-vaapi-0.2.5/configure.ac	2010-08-05 20:25:28.026420790 +0300
+@@ -122,7 +122,7 @@
+ 
+ dnl Check for GLib
+ AC_PATH_PROG([GLIB_GENMARSHAL], [glib-genmarshal])
+-PKG_CHECK_MODULES([GLIB], [glib-2.0])
++PKG_CHECK_MODULES([GLIB], [glib-2.0 gobject-2.0])
+ AC_SUBST(GLIB_CFLAGS)
+ AC_SUBST(GLIB_LIBS)
+ 
+@@ -272,7 +272,7 @@
+ fi
+ 
+ dnl Check for FFmpeg
+-PKG_CHECK_MODULES(LIBAVCODEC, [libavcodec])
++PKG_CHECK_MODULES(LIBAVCODEC, [libavcodec libavutil])
+ AC_CHECK_HEADERS([libavcodec/avcodec.h ffmpeg/avcodec.h])
+ AC_CHECK_HEADERS([libavcodec/vaapi.h ffmpeg/vaapi.h], [break],
+     AC_MSG_ERROR([The system FFmpeg headers do not support VA-API]))
