@@ -1,8 +1,9 @@
 
 %define name	gstreamer0.10-vaapi
 %define oname	gstreamer-vaapi
-%define version	0.2.5
-%define rel	2
+# tag 0.4.0 from git://gitorious.org/vaapi/gstreamer-vaapi.git
+%define version	0.4.0
+%define rel	1
 
 %define api	0.10
 %define major	0
@@ -12,17 +13,17 @@
 Summary:	VA-API support for GStreamer
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel %rel
+Release:	%rel
 URL:		http://www.splitted-desktop.com/~gbeauchesne/gstreamer-vaapi/
-Source:		http://www.splitted-desktop.com/~gbeauchesne/gstreamer-vaapi/gstreamer-vaapi-%{version}.tar.gz
-Patch0:		gstreamer-vaapi-underlinking.patch
+Source0:		http://www.splitted-desktop.com/~gbeauchesne/gstreamer-vaapi/gstreamer-vaapi-%{version}.tar.gz
+source1:		.abf.yml
 License:	GPLv2+
 Group:		Video
-BuildRoot:	%{_tmppath}/%{name}-root
 BuildRequires:	libgstreamer-devel
 BuildRequires:	libgstreamer-plugins-base-devel
 BuildRequires:	libva-devel
-BuildRequires:	ffmpeg-devel
+buildrequires:	pkgconfig(gstreamer-basevideo-0.10)
+buildrequires:	pkgconfig(gstreamer-codecparsers-0.10)
 BUildRequires:	gtk-doc
 
 %description
@@ -51,27 +52,21 @@ Development files for the libgstvaapi helper libraries.
 %apply_patches
 
 %build
-autoreconf -if
+export LIBS="-ldl"
+./autogen.sh
 %configure2_5x
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 # unneeded files and static libs
-rm %{buildroot}%{_libdir}/*/*.la
-rm %{buildroot}%{_libdir}/*.{la,a}
-
-%clean
-rm -rf %{buildroot}
+rm %{buildroot}%{_libdir}/*.a
 
 %files
 %defattr(-,root,root)
 %doc README NEWS AUTHORS
-%{_libdir}/gstreamer-%{api}/libgstvaapiconvert.so
-%{_libdir}/gstreamer-%{api}/libgstvaapidecode.so
-%{_libdir}/gstreamer-%{api}/libgstvaapisink.so
+%{_libdir}/gstreamer-%{api}/libgstvaapi.so
 
 %files -n %{libname}
 %defattr(-,root,root)
@@ -83,3 +78,14 @@ rm -rf %{buildroot}
 %{_includedir}/gstreamer-%{api}/gst/vaapi
 %{_libdir}/libgstvaapi*-%{api}.so
 %{_libdir}/pkgconfig/gstreamer-vaapi*-%{api}.pc
+
+
+%changelog
+* Fri Nov 05 2010 Funda Wang <fwang@mandriva.org> 0.2.5-2mdv2011.0
++ Revision: 593569
+- rebuild for gstreamer provides
+
+* Thu Aug 12 2010 Anssi Hannula <anssi@mandriva.org> 0.2.5-1mdv2011.0
++ Revision: 569183
+- initial Mandriva release
+

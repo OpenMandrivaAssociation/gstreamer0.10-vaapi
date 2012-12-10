@@ -1,2 +1,3 @@
 sources:
-  "gstreamer-vaapi-0.2.5.tar.gz:"	6581c416f847dd2bb81f71f498906af238cf7e53
+  gstreamer-vaapi-0.4.0.tar.gz: b43940656612ca07bd3588a4d9b743e9914799f5
+---
