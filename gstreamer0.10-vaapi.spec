@@ -49,7 +49,7 @@ Development files for the libgstvaapi helper libraries.
 
 %prep
 %setup -q -n %{oname}-%{version}
-%apply_patches
+%autopatch -p1
 
 %build
 export LIBS="-ldl"
