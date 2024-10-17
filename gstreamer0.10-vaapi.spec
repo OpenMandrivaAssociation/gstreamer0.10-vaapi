@@ -14,7 +14,7 @@ Summary:	VA-API support for GStreamer
 Name:		%{name}
 Version:	%{version}
 Release:	%rel
-URL:		http://www.splitted-desktop.com/~gbeauchesne/gstreamer-vaapi/
+URL:		https://www.splitted-desktop.com/~gbeauchesne/gstreamer-vaapi/
 Source0:		http://www.splitted-desktop.com/~gbeauchesne/gstreamer-vaapi/gstreamer-vaapi-%{version}.tar.gz
 source1:		.abf.yml
 License:	GPLv2+
