@@ -19,6 +19,11 @@ Source0:		http://www.splitted-desktop.com/~gbeauchesne/gstreamer-vaapi/gstreamer
 source1:		.abf.yml
 License:	GPLv2+
 Group:		Video
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libgstreamer-devel
 BuildRequires:	libgstreamer-plugins-base-devel
 BuildRequires:	libva-devel
